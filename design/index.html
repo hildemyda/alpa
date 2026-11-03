@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design | Hildemyda</title>
+    <meta name="description" content="Hasil dan preview desain Hildemyda.">
+    <meta property="og:title" content="Design | Hildemyda">
+    <meta property="og:description" content="Sejarah desain yang pernah saya bikin, buat testimoni juga.">
+    <meta property="og:image" content="https://alpa.my.id/karya/karya-01-thumb.webp">
+    <meta property="og:url" content="https://alpa.my.id/design/">
+    <link rel="icon" href="../media/profile.jpg">
+
+    <script>
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar-in">
+            <a class="back" href="../"><i data-icon="arrow-left"></i>Hildemyda</a>
+            <button class="top-theme" type="button" data-theme-toggle aria-label="Ganti tema terang atau gelap">
+                <i class="sun" data-icon="sun"></i>
+                <i class="moon" data-icon="moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="page">
+        <h1 class="page-title">Design</h1>
+        <p class="page-sub">Sejarah desain yang pernah saya bikin, buat testimoni juga.</p>
+
+        <div class="tags">
+            <span class="tag"><i data-icon="shapes"></i>PixelLab</span>
+            <span class="tag"><i data-icon="palette"></i>PicsArt</span>
+            <span class="tag"><i data-icon="pen-tool"></i>CorelDraw</span>
+        </div>
+
+        <div class="filters" id="filters" hidden></div>
+        <div class="grid" id="works"></div>
+
+        <section class="cta">
+            <h2>Order desain?</h2>
+            <a class="btn btn-wa" href="https://wa.me/6285754711287" target="_blank" rel="noopener noreferrer">
+                <i data-icon="whatsapp"></i>Kontak Admin
+            </a>
+        </section>
+
+        <footer class="footer"><p>&copy; 2025 Hildemyda</p></footer>
+    </main>
+
+    <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+        <div class="viewer-box">
+            <div class="viewer-head">
+                <div>
+                    <h2 class="viewer-title" id="viewer-title"></h2>
+                    <p class="viewer-cat" id="viewer-cat"></p>
+                </div>
+                <button class="viewer-close" id="viewer-close" type="button" aria-label="Tutup"><i data-icon="x"></i></button>
+            </div>
+            <div class="viewer-body" id="viewer-body"></div>
+        </div>
+    </dialog>
+
+    <script>window.ROOT = '../';</script>
+    <script src="../js/works.js"></script>
+    <script src="../js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var works = window.WORKS || [];
+            var grid = document.getElementById('works');
+            var filters = document.getElementById('filters');
+            var viewer = document.getElementById('viewer');
+            var body = document.getElementById('viewer-body');
+            var current = 'Semua';
+
+            function render() {
+                grid.innerHTML = '';
+                var list = works.filter(function (w) { return current === 'Semua' || w.category === current; });
+                if (!list.length) {
+                    grid.outerHTML = '<p class="empty" id="works">Belum ada karya.</p>';
+                    grid = document.getElementById('works');
+                    return;
+                }
+                list.forEach(function (w) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'work';
+                    b.id = 'karya-' + w.id;
+                    b.setAttribute('aria-label', 'Buka karya ' + w.title);
+                    var img = document.createElement('img');
+                    img.src = window.ROOT + w.thumb;
+                    img.alt = w.title;
+                    img.loading = 'lazy';
+                    var label = document.createElement('span');
+                    label.className = 'work-label';
+                    label.textContent = w.title;
+                    b.appendChild(img);
+                    b.appendChild(label);
+                    b.addEventListener('click', function () { openWork(w); });
+                    grid.appendChild(b);
+                });
+            }
+
+            // Tombol filter hanya muncul kalau ada 2 kategori atau lebih
+            var cats = [];
+            works.forEach(function (w) { if (cats.indexOf(w.category) < 0) cats.push(w.category); });
+            if (cats.length > 1) {
+                filters.hidden = false;
+                ['Semua'].concat(cats).forEach(function (c) {
+                    var chip = document.createElement('button');
+                    chip.type = 'button';
+                    chip.className = 'chip';
+                    chip.textContent = c;
+                    chip.setAttribute('aria-pressed', c === current ? 'true' : 'false');
+                    chip.addEventListener('click', function () {
+                        current = c;
+                        filters.querySelectorAll('.chip').forEach(function (x) {
+                            x.setAttribute('aria-pressed', x === chip ? 'true' : 'false');
+                        });
+                        render();
+                    });
+                    filters.appendChild(chip);
+                });
+            }
+
+            function openWork(w) {
+                document.getElementById('viewer-title').textContent = w.title;
+                document.getElementById('viewer-cat').textContent = w.category;
+                body.innerHTML = '';
+                if (w.desc) {
+                    var p = document.createElement('p');
+                    p.className = 'viewer-desc';
+                    p.textContent = w.desc;
+                    body.appendChild(p);
+                }
+                w.images.forEach(function (src) {
+                    var img = document.createElement('img');
+                    img.src = window.ROOT + src;
+                    img.alt = w.title;
+                    img.loading = 'lazy';
+                    body.appendChild(img);
+                });
+                body.scrollTop = 0;
+                if (typeof viewer.showModal === 'function') viewer.showModal();
+                else viewer.setAttribute('open', '');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeWork() {
+                if (typeof viewer.close === 'function') viewer.close();
+                else viewer.removeAttribute('open');
+            }
+
+            viewer.addEventListener('close', function () { document.body.style.overflow = ''; });
+            document.getElementById('viewer-close').addEventListener('click', closeWork);
+            viewer.addEventListener('click', function (e) { if (e.target === viewer) closeWork(); });
+
+            render();
+
+            // Tautan dari beranda (design/#karya-1) langsung membuka karya itu
+            var m = location.hash.match(/^#karya-(\d+)$/);
+            if (m) {
+                var target = works.filter(function (w) { return String(w.id) === m[1]; })[0];
+                if (target) openWork(target);
+            }
+        });
+    </script>
+</body>
+</html>
