@@ -287,6 +287,7 @@ html.light .social-theme .moon { display: inline-flex; }
     position: sticky;
     top: 0;
     z-index: 5;
+    background: var(--bg); /* cadangan untuk browser lama */
     background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -378,6 +379,7 @@ dialog.viewer::backdrop { background: rgba(0, 0, 0, .8); backdrop-filter: blur(3
 
 /* Halaman 404 */
 .nf {
+    min-height: calc(100vh - 3.6rem); /* cadangan untuk browser lama */
     min-height: calc(100svh - 3.6rem);
     display: flex;
     flex-direction: column;
@@ -401,8 +403,6 @@ dialog.viewer::backdrop { background: rgba(0, 0, 0, .8); backdrop-filter: blur(3
 .btn-solid { padding: .7rem 1.4rem; background: var(--text); color: var(--bg); font-weight: 500; }
 .btn-solid:hover { opacity: .9; }
 
-/* Kartu sorot (Murdes) */
-.card-feature { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 65%), var(--card); }
-.card-feature:hover { border-color: var(--accent); }
-.card-feature .card-icon { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
-.badge { display: inline-block; margin-left: .35rem; padding: .05rem .5rem; border-radius: 999px; vertical-align: .1em; font-size: .68rem; font-weight: 600; letter-spacing: .02em; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+/* Ikon hijau untuk kartu Murdes (selain itu sama dengan kartu lain) */
+.card-icon-green { color: #8affa1; }
+html.light .card-icon-green { color: #1f9d4d; }
