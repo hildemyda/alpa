@@ -400,3 +400,9 @@ dialog.viewer::backdrop { background: rgba(0, 0, 0, .8); backdrop-filter: blur(3
 .nf-actions { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 .btn-solid { padding: .7rem 1.4rem; background: var(--text); color: var(--bg); font-weight: 500; }
 .btn-solid:hover { opacity: .9; }
+
+/* Kartu sorot (Murdes) */
+.card-feature { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 65%), var(--card); }
+.card-feature:hover { border-color: var(--accent); }
+.card-feature .card-icon { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.badge { display: inline-block; margin-left: .35rem; padding: .05rem .5rem; border-radius: 999px; vertical-align: .1em; font-size: .68rem; font-weight: 600; letter-spacing: .02em; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
