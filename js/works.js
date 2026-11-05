@@ -20,90 +20,90 @@ window.WORKS = [
   {
     id: 1,
     pinned: true,
-    title: "Design 01",
+    title: "Desain 01",
     category: "Logo",
-    desc: "aGBtrshrtjhrtjh",
+    desc: "Yo nda tau nanya ~euoo nanya saya",
     thumb: "karya/karya-01-thumb.webp",
     images: ["karya/karya-01-a.webp", "karya/karya-01-b.webp"]
   },
   {
     id: 2,
     pinned: true,
-    title: "Design 02",
+    title: "Desain 02",
     category: "Logo",
-    desc: "EFEFEFFEFFEEFFEFE",
+    desc: "wefwefwew",
     thumb: "karya/karya-02-thumb.webp",
     images: ["karya/karya-02-a.webp", "karya/karya-02-b.webp"]
   },
   {
     id: 3,
     pinned: true,
-    title: "Design 03",
+    title: "Desain 03",
     category: "Logo",
-    desc: "reberewegerhbthb",
+    desc: "wfefweweffewfew",
     thumb: "karya/karya-03-thumb.webp",
     images: ["karya/karya-03-a.webp", "karya/karya-03-b.webp"]
   },
   {
     id: 4,
     pinned: true,
-    title: "Design 04",
+    title: "Desain 04",
     category: "Poster",
-    desc: "ewfwe5t234tfwtg",
+    desc: "fwefwewefwfefe",
     thumb: "karya/karya-04-thumb.webp",
     images: ["karya/karya-04-a.webp", "karya/karya-04-b.webp"]
   },
   {
     id: 5,
     pinned: true,
-    title: "Design 05",
+    title: "Desain 05",
     category: "Poster",
-    desc: "ewfwefgewf",
+    desc: "efwfewfewfewwfe",
     thumb: "karya/karya-05-thumb.webp",
     images: ["karya/karya-05-a.webp", "karya/karya-05-b.webp"]
   },
   {
     id: 6,
     pinned: true,
-    title: "Design 06",
+    title: "Desain 06",
     category: "Poster",
-    desc: "wefwefewfwef",
+    desc: "ewffwefewfewefw",
     thumb: "karya/karya-06-thumb.webp",
     images: ["karya/karya-06-a.webp", "karya/karya-06-b.webp"]
   },
   {
     id: 7,
     pinned: false,
-    title: "Design 07",
+    title: "Desain 07",
     category: "Logo",
-    desc: "ewfgewrgvbre",
+    desc: "ewfefwfweefwfwe",
     thumb: "karya/karya-07-thumb.webp",
     images: ["karya/karya-07-a.webp", "karya/karya-07-b.webp"]
   },
   {
     id: 8,
     pinned: false,
-    title: "Design 08",
+    title: "Desain 08",
     category: "Banner",
-    desc: "rebrebredbre",
+    desc: "fwefewwefewffwe",
     thumb: "karya/karya-08-thumb.webp",
     images: ["karya/karya-08-a.webp", "karya/karya-08-b.webp"]
   },
   {
     id: 9,
     pinned: false,
-    title: "Design 09",
+    title: "Desain 09",
     category: "Poster",
-    desc: "rbgtyrtbndbbsrws",
+    desc: "efwfweewewffew",
     thumb: "karya/karya-09-thumb.webp",
     images: ["karya/karya-09-a.webp", "karya/karya-09-b.webp"]
   },
   {
     id: 10,
     pinned: false,
-    title: "Design 10",
+    title: "Karya 10",
     category: "Logo",
-    desc: "rbhdrshbsdfbdsf",
+    desc: "wefewfweffewfwewfe",
     thumb: "karya/karya-10-thumb.webp",
     images: ["karya/karya-10-a.webp", "karya/karya-10-b.webp"]
   }
