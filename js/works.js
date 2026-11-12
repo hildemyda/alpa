@@ -108,3 +108,15 @@ window.WORKS = [
     images: ["karya/karya-10-a.webp", "karya/karya-10-b.webp"]
   }
 ];
+
+// Aplikasi yang tampil berjalan (loop) di halaman /design.
+// Cara menambah: taruh ikonnya (gambar persegi, .webp) di folder "media/icon", lalu tambahkan satu baris di bawah.
+// Kalau belum punya ikonnya, kosongkan icon: "" supaya tampil dua huruf pertama nama aplikasi.
+window.TOOLS = [
+  { name: "CorelDraw",    icon: "media/icon/cd.webp" },
+  { name: "PixelLab",     icon: "media/icon/px.webp" },
+  { name: "AlightMotion", icon: "media/icon/am.webp" },
+  { name: "PicsArt",      icon: "" },
+  { name: "Canva",        icon: "" },
+  { name: "Ibis Paint",   icon: "" }
+];
