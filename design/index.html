@@ -12,7 +12,7 @@
     <link rel="icon" href="../media/profile.jpg">
 
     <script>
-        try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}
+        try { (function () { var m = document.cookie.match(/(?:^|;\s*)theme=(light|dark)/); var t = m ? m[1] : localStorage.getItem('theme'); if (t === 'light') document.documentElement.classList.add('light'); })(); } catch (e) {}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
